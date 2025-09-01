@@ -6,7 +6,7 @@
 /*   By: bmalca-b <bmalca-b@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:43:28 by bmalca-b          #+#    #+#             */
-/*   Updated: 2025/09/01 18:30:30 by bmalca-b         ###   ########.fr       */
+/*   Updated: 2025/09/01 18:34:12 by bmalca-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	sanitize_str(char *dirty, char *clean)
 int	ft_atoi(char *str)
 {
 	char	clean[50];
-	int		is_negative;
 	int		size;
 	int		i;
 	int		number;
@@ -97,6 +96,6 @@ int	main(int argc, char **argv)
 	
 	number = ft_atoi(argv[1]);
 	printf("%d", number);
-	return (0);
+	return (0 * argc);
 }
 */
