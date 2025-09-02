@@ -15,11 +15,13 @@
 void	print_number(int nb, char *base_str, int base)
 {
 	char	out;
-
-	if (nb >= base)
-		print_number(nb / base, base_str, base);
-	out = base_str[(nb % base)];
-	write(1, &out, 1);
+	if (base > 1)
+	{	
+		if (nb >= base)
+			print_number(nb / base, base_str, base);
+		out = base_str[(nb % base)];
+		write(1, &out, 1);
+	}
 }
 /*
 void	ft_putnbr(int nb)
@@ -35,10 +37,21 @@ void	ft_putnbr(int nb)
 int	validate_base(char *dirty_base)
 {
 	int size;
+	int i;
 
 	size = 0;
+	i = 0;
 	while(dirty_base[size] != '\0')
 	{
+		if (dirty_base[size] == '+' || dirty_base[size] == '-')
+			return (0);
+		while (i < size)
+		{
+			if (dirty_base[i] == dirty_base[size])
+				return (0);
+			i++;
+		}
+		i = 0;
 		size++;
 	}
 	return (size);
@@ -56,8 +69,7 @@ void	ft_putnbr_base(int nbr, char *base)
 #include <stdlib.h>
 int	main(int argc, char **argv)
 {
-	
-	ft_putnbr_base(atoi(argv[1]), argv[2]);
-	
+	//ft_putnbr_base(atoi(argv[1]), argv[2]);
+	ft_putnbr_base(42, "123");
 	return (argc * 0);
 }
